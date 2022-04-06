@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :chefs
+  has_one :chef
   has_many :participations
   has_many :emojis
   has_many :comments
