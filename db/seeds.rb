@@ -1,9 +1,5 @@
 require "open-uri"
 
-p "Destroying posts"
-Post.destroy_all
-p "Destroying participations"
-Participation.destroy_all
 p "Destroying courses"
 Course.destroy_all
 p "Destroying chefs"
@@ -13,47 +9,20 @@ User.destroy_all
 
 users_h = [
   {
-    first_name: "Stephen",
-    last_name: "Grieves",
-    email: "stephen@gmail.com",
-    password: "stephen",
-    nickname: "stepheng",
-    photo: "stephen.png"
-  },
-  {
-    first_name: "Matthieu",
-    last_name: "Flecher",
-    email: "matthieu@gmail.com",
-    password: "matthieu",
-    nickname: "matt_f",
-    photo: "matthieu.jpg"
-  },
-  {
-    first_name: "Frederic",
-    last_name: "Lange",
-    email: "frederic@gmail.com",
-    password: "frederic",
-    nickname: "fred_lange",
-    photo: "fred.jpg",
-    admin: true
-  },
-  {
     first_name: "Maxime",
     last_name: "Plasse",
     email: "maxime@gmail.com",
     password: "maxime",
     nickname: "maxplasse",
-    photo: "maxime.jpg",
-    admin: true
+    photo: "https://ca.slack-edge.com/T02NE0241-U02SEH58EG5-145417290445-512"
   },
   {
-    first_name: "Maxime",
-    last_name: "Beauge",
-    email: "maximebeauge@gmail.com",
-    password: "maxime",
-    nickname: "maxxx",
-    photo: "maxxx.png",
-    admin: true
+    first_name: "Marie",
+    last_name: "Sepanik",
+    email: "marie@gmail.com",
+    password: "maries",
+    nickname: "mariess",
+    photo: "https://ca.slack-edge.com/T02NE0241-U02T8TN7BH6-7ddecfe937a5-512"
   },
   {
     first_name: "Thomas",
@@ -61,23 +30,7 @@ users_h = [
     email: "thomas@gmail.com",
     password: "thomas",
     nickname: "tdm",
-    photo: "thomas.jpg"
-  },
-  {
-    first_name: "Marie",
-    last_name: "Desjonqueres",
-    email: "marie@gmail.com",
-    password: "maried",
-    nickname: "marie_d",
-    photo: "marie.jpg"
-  },
-  {
-    first_name: "Louise",
-    last_name: "Ouldhaddi",
-    email: "louise@gmail.com",
-    password: "louise",
-    nickname: "loulou",
-    photo: "louise.jpg"
+    photo: "https://ca.slack-edge.com/T02NE0241-U0HL5H10T-1e791b124c6f-512"
   },
   {
     first_name: "Myriam",
@@ -85,34 +38,27 @@ users_h = [
     email: "myriam@gmail.com",
     password: "myriam",
     nickname: "mymy",
-    photo: "myriam.jpg"
-  },
-  {
-    first_name: "Diane",
-    last_name: "Johnson",
-    email: "diane@gmail.com",
-    password: "dianej",
-    nickname: "djr",
-    photo: "diane.jpg"
+    photo: "https://ca.slack-edge.com/T02NE0241-U02TNV8D9DX-65eff4499351-512"
   }
 ]
 
-users = users_h.map do |user|
-  u = User.new(user)
-  u.save
+users = users_h.map.with_index do |user, index|
+  photo = URI.open(user[:photo])
+
+  u = User.new(first_name: user[:first_name],
+               last_name: user[:last_name],
+               email: user[:email],
+               password: user[:password],
+               nickname: user[:nickname])
+  u.photo.attach(io: photo, filename: "user#{index}.png", content_type: "image/png")
+  u.save!
   u
 end
 
-stephen = users[0]
-matthieu = users[1]
-fred = users[2]
-maxime_p = users[3]
-maxime_b = users[4]
-thomas = users[5]
-marie = users[6]
-louise = users[7]
-myriam = users[8]
-diane = users[9]
+maxime = users[0]
+marie = users[1]
+thomas = users[2]
+myriam = users[3]
 
 p "1"
 
@@ -123,7 +69,7 @@ users_chefs_h = [
     email: "ambroise@gmail.com",
     password: "ambroise",
     nickname: "ambroise",
-    photo: "ambroise.jpg"
+    photo: "https://file1.telestar.fr/var/telestar/storage/images/3/5/8/5/3585680/ambroise-top-chef.jpeg?alias=original"
   },
   {
     first_name: "Lilian",
@@ -131,7 +77,7 @@ users_chefs_h = [
     email: "lilian@gmail.com",
     password: "lilian",
     nickname: "douchet",
-    photo: "lilian.jpg"
+    photo: "https://file1.telestar.fr/var/telestar/storage/images/3/5/8/9/3589030/lilian-douchet.jpeg?alias=width400&size=x100&format=jpeg"
   },
   {
     first_name: "Chloé",
@@ -139,7 +85,7 @@ users_chefs_h = [
     email: "chloe@gmail.com",
     password: "chloec",
     nickname: "chloec",
-    photo: "chloe.jpg"
+    photo: "https://voi.img.pmdstatic.net/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Fvoi.2F2021.2F02.2F02.2F6e3e8078-d66c-4af6-8b20-4e2b89511a7b.2Ejpeg/2048x1536/quality/80/chloe-charles.jpeg"
   },
   {
     first_name: "Mory",
@@ -147,7 +93,7 @@ users_chefs_h = [
     email: "morysacko@gmail.com",
     password: "morysacko",
     nickname: "morysacko",
-    photo: "mory.jpg"
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Mory01.jpg/1200px-Mory01.jpg"
   },
   {
     first_name: "Sarah",
@@ -155,7 +101,7 @@ users_chefs_h = [
     email: "sarah@gmail.com",
     password: "sarahm",
     nickname: "sarahm",
-    photo: "sarah.jpg"
+    photo: "https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/elle-a-table/les-dossiers-de-la-redaction/news-de-la-redaction/sarah-mainguy-podcast-a-poele-3929639/94900910-1-fre-FR/Sarah-Mainguy-de-Top-Chef-se-confie-dans-le-podcast-A-Poele.jpg"
   },
   {
     first_name: "Alexia",
@@ -163,7 +109,7 @@ users_chefs_h = [
     email: "alexia@gmail.com",
     password: "alexia",
     nickname: "alexia_d",
-    photo: "alexia.jpg"
+    photo: "https://images.rtl.fr/~c/2000v2000/rtl/www/1361958-alexia-duchene-23-ans-la-demi-finaliste-de-top-chef-saison-10.jpg"
   },
   {
     first_name: "Pierre",
@@ -171,7 +117,7 @@ users_chefs_h = [
     email: "pierre@gmail.com",
     password: "pierre",
     nickname: "pierre_chomet",
-    photo: "pierre.jpg"
+    photo: "https://static.wikia.nocookie.net/topchef/images/3/36/Pierrechomet1.jpg/revision/latest?cb=20210205213339&path-prefix=fr"
   },
   {
     first_name: "Amar",
@@ -179,13 +125,20 @@ users_chefs_h = [
     email: "amar@gmail.com",
     password: "tajine",
     nickname: "amar",
-    photo: "amar.jpg"
+    photo: "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.6435-9/169994975_830013694276654_221704638336640460_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=a26aad&_nc_ohc=_1rjmqUIasYAX8I5_MT&_nc_ht=scontent-cdt1-1.xx&oh=00_AT_3-OuhDmXSzrAcQpS030HuQJCBY2YFtNu5eyNVWCzBuQ&oe=6272B262"
   }
 ]
 
-users_chefs = users_chefs_h.map do |user|
-  u = User.new(user)
-  u.save
+users_chefs = users_chefs_h.map.with_index do |chef, index|
+  photo = URI.open(chef[:photo])
+
+  u = User.new(first_name: chef[:first_name],
+               last_name: chef[:last_name],
+               email: chef[:email],
+               password: chef[:password],
+               nickname: chef[:nickname])
+  u.photo.attach(io: photo, filename: "chef#{index}.png", content_type: "image/png")
+  u.save!
   u
 end
 
@@ -202,51 +155,59 @@ p "2"
 
 chefs_h = [
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: ambroisev
   },
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: liliand
   },
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: chloec
   },
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: morys
   },
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: sarahm
   },
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: alexiad
   },
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: pierrec
   },
   {
-    restaurant_name: "",
-    specialty: "",
-    level: "",
+    restaurants_names: "",
+    genre: "",
+    title: "",
+    subtitle: "",
     user: amarm
   }
 ]
@@ -277,10 +238,8 @@ courses_simple_h = [
     difficulty: "Moyen",
     duration: 50,
     category: "Asiatique",
-    total_participations: 236,
-    level_points: 10,
-    start_at: DateTime.new(2022, 1, 5, 18),
-    end_at: DateTime.new(2022, 1, 5, 18) + 0.84.hour,
+    starts_at: DateTime.new(2022, 1, 5, 18),
+    ends_at: DateTime.new(2022, 1, 5, 18) + 0.84.hour,
     photo_url: [
       "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -291,10 +250,8 @@ courses_simple_h = [
     difficulty: "Facile",
     duration: 50,
     category: "Français",
-    total_participations: 168,
-    level_points: 5,
-    start_at: DateTime.new(2022, 1, 12, 18, 30),
-    end_at: DateTime.new(2022, 1, 12, 18, 30) + 0.84.hour,
+    starts_at: DateTime.new(2022, 1, 12, 18, 30),
+    ends_at: DateTime.new(2022, 1, 12, 18, 30) + 0.84.hour,
     photo_url: [
       "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -305,10 +262,8 @@ courses_simple_h = [
     difficulty: "Facile",
     duration: 40,
     category: "Asiatique",
-    total_participations: 128,
-    level_points: 5,
-    start_at: DateTime.new(2022, 1, 13, 19),
-    end_at: DateTime.new(2022, 1, 13, 19) + 0.66.hour,
+    starts_at: DateTime.new(2022, 1, 13, 19),
+    ends_at: DateTime.new(2022, 1, 13, 19) + 0.66.hour,
     photo_url: [
       "https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -319,10 +274,8 @@ courses_simple_h = [
     difficulty: "Facile",
     duration: 35,
     category: "Français",
-    total_participations: 265,
-    level_points: 5,
-    start_at: DateTime.new(2022, 1, 19, 18, 30),
-    end_at: DateTime.new(2022, 1, 19, 18, 30) + 0.58.hour,
+    starts_at: DateTime.new(2022, 1, 19, 18, 30),
+    ends_at: DateTime.new(2022, 1, 19, 18, 30) + 0.58.hour,
     photo_url: [
       "https://images.pexels.com/photos/3490368/pexels-photo-3490368.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -332,11 +285,9 @@ courses_simple_h = [
     title: "Gnocchis épinards et crème au soja",
     difficulty: "Facile",
     duration: 30,
-    category: "Végétarien",
-    total_participations: 142,
-    level_points: 5,
-    start_at: DateTime.new(2022, 1, 25, 18),
-    end_at: DateTime.new(2022, 1, 25, 18) + 0.5.hour,
+    category: "Français",
+    starts_at: DateTime.new(2022, 1, 25, 18),
+    ends_at: DateTime.new(2022, 1, 25, 18) + 0.5.hour,
     photo_url: [
       "https://images.pexels.com/photos/3590401/pexels-photo-3590401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -346,11 +297,9 @@ courses_simple_h = [
     title: "Canard, épinards et pommes de terre grillées au four",
     difficulty: "Difficile",
     duration: 60,
-    category: "",
-    total_participations: 189,
-    level_points: 15,
-    start_at: DateTime.new(2022, 1, 27, 19, 30),
-    end_at: DateTime.new(2022, 1, 25, 18) + 1.hour,
+    category: "Français",
+    starts_at: DateTime.new(2022, 1, 27, 19, 30),
+    ends_at: DateTime.new(2022, 1, 25, 18) + 1.hour,
     photo_url: [
       "https://images.pexels.com/photos/3659862/pexels-photo-3659862.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -360,11 +309,9 @@ courses_simple_h = [
     title: "Makis saumon et avocat",
     difficulty: "Moyen",
     duration: 60,
-    category: "Asiatique",
-    total_participations: 193,
-    level_points: 10,
-    start_at: DateTime.new(2022, 2, 1, 19, 30),
-    end_at: DateTime.new(2022, 2, 1, 19, 30) + 1.hour,
+    category: "Japonais",
+    starts_at: DateTime.new(2022, 2, 1, 19, 30),
+    ends_at: DateTime.new(2022, 2, 1, 19, 30) + 1.hour,
     photo_url: [
       "https://images.pexels.com/photos/3642030/pexels-photo-3642030.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -375,10 +322,8 @@ courses_simple_h = [
     difficulty: "Facile",
     duration: 50,
     category: "Français",
-    total_participations: 137,
-    level_points: 5,
-    start_at: DateTime.new(2022, 2, 2, 18, 30),
-    end_at: DateTime.new(2022, 2, 2, 18, 30) + 0.84.hour,
+    starts_at: DateTime.new(2022, 2, 2, 18, 30),
+    ends_at: DateTime.new(2022, 2, 2, 18, 30) + 0.84.hour,
     photo_url: [
       "https://images.pexels.com/photos/675951/pexels-photo-675951.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -389,10 +334,8 @@ courses_simple_h = [
     difficulty: "Difficile",
     duration: 50,
     category: "Français",
-    total_participations: 149,
-    level_points: 15,
-    start_at: DateTime.new(2022, 2, 2, 18, 30),
-    end_at: DateTime.new(2022, 2, 2, 18, 30) + 0.84.hour,
+    starts_at: DateTime.new(2022, 2, 2, 18, 30),
+    ends_at: DateTime.new(2022, 2, 2, 18, 30) + 0.84.hour,
     photo_url: [
       "https://images.pexels.com/photos/323682/pexels-photo-323682.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -402,11 +345,9 @@ courses_simple_h = [
     title: "Toast avocat, épinards et œuf",
     difficulty: "Difficile",
     duration: 30,
-    category: "",
-    total_participations: 203,
-    level_points: 15,
-    start_at: DateTime.new(2022, 2, 8, 18, 30),
-    end_at: DateTime.new(2022, 2, 8, 18, 30) + 0.5.hour,
+    category: "Français",
+    starts_at: DateTime.new(2022, 2, 8, 18, 30),
+    ends_at: DateTime.new(2022, 2, 8, 18, 30) + 0.5.hour,
     photo_url: [
       "https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
     ]
@@ -416,11 +357,9 @@ courses_simple_h = [
     title: "Poke bowl salade, crevettes au curry, avocat",
     difficulty: "Facile",
     duration: 30,
-    category: "Asiatique",
-    total_participations: 281,
-    level_points: 5,
-    start_at: DateTime.new(2022, 2, 9, 18, 30),
-    end_at: DateTime.new(2022, 2, 8, 18, 30) + 0.5.hour,
+    category: "Japonais",
+    starts_at: DateTime.now + 4.day,
+    ends_at: DateTime.now + 4.day + 0.5.hour,
     photo_url: [
       "https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -430,11 +369,9 @@ courses_simple_h = [
     title: "Homard grillé au four, sauce à la crème et à la bisque",
     difficulty: "Difficile",
     duration: 70,
-    category: "",
-    total_participations: 219,
-    level_points: 15,
-    start_at: DateTime.new(2022, 3, 15, 19),
-    end_at: DateTime.new(2022, 3, 15, 19) + 1.16.hour,
+    category: "Français",
+    starts_at: DateTime.now + 5.day,
+    ends_at: DateTime.now + 5.day + 1.16.hour,
     photo_url: [
       "https://images.pexels.com/photos/10883374/pexels-photo-10883374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -445,10 +382,8 @@ courses_simple_h = [
     difficulty: "Moyen",
     duration: 45,
     category: "Italien",
-    total_participations: 172,
-    level_points: 10,
-    start_at: DateTime.new(2022, 2, 17, 19),
-    end_at: DateTime.new(2022, 2, 17, 19) + 0.75.hour,
+    starts_at: DateTime.now + 7.day,
+    ends_at: DateTime.now + 7.day + 0.75.hour,
     photo_url: [
       "https://images.pexels.com/photos/10766728/pexels-photo-10766728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -459,10 +394,8 @@ courses_simple_h = [
     difficulty: "Facile",
     duration: 45,
     category: "Italien",
-    total_participations: 183,
-    level_points: 5,
-    start_at: DateTime.new(2022, 2, 18, 18, 30),
-    end_at: DateTime.new(2022, 2, 18, 18, 30) + 0.75.hour,
+    starts_at: DateTime.now + 2.day,
+    ends_at: DateTime.now + 2.day + 0.75.hour,
     photo_url: [
       "https://images.pexels.com/photos/6046493/pexels-photo-6046493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -472,11 +405,9 @@ courses_simple_h = [
     title: "Pad thaï aux crevettes",
     difficulty: "Moyen",
     duration: 50,
-    category: "",
-    total_participations: 137,
-    level_points: 10,
-    start_at: DateTime.new(2022, 2, 25, 19, 30),
-    end_at: DateTime.new(2022, 2, 25, 19, 30) + 0.83.hour,
+    category: "Chinois",
+    starts_at: DateTime.now + 4.day,
+    ends_at: DateTime.now + 4.day + 0.83.hour,
     photo_url: [
       "https://images.pexels.com/photos/6646351/pexels-photo-6646351.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     ]
@@ -486,11 +417,9 @@ courses_simple_h = [
     title: "Tajine d'agneau",
     difficulty: "Moyen",
     duration: 50,
-    category: "",
-    total_participations: 143,
-    level_points: 10,
-    start_at: DateTime.new(2022, 2, 24, 19, 30),
-    end_at: DateTime.new(2022, 2, 24, 19, 30) + 0.83.hour,
+    category: "Oriental",
+    starts_at: DateTime.now + 3.day,
+    ends_at: DateTime.now + 3.day + 0.83.hour,
     photo_url: [
       "https://assets.afcdn.com/recipe/20181017/82766_w1024h768c1cx1834cy2446.jpg"
     ]
@@ -505,10 +434,8 @@ courses = courses_simple_h.map.with_index do |course, index|
                  difficulty: course[:difficulty],
                  duration: course[:duration],
                  category: course[:category],
-                 total_participations: course[:total_participations],
-                 level_points: course[:level_points],
-                 start_at: course[:start_at],
-                 end_at: course[:end_at])
+                 starts_at: course[:starts_at],
+                 ends_at: course[:ends_at])
   p.photo.attach(io: photo, filename: "course#{index}.png", content_type: 'image/png')
   p.save!
   p
