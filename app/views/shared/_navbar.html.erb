@@ -1,0 +1,49 @@
+<div class="container-foodclass">
+  <div class="navbar-foodclass">
+    <div class="navbar-layout">
+      <div class="navbar-layout-links">
+        <div>
+          <%= link_to "Nos Chefs", root_path, class:"nav-link" %>
+        </div>
+        <div>
+          <%= link_to "Communauté FoodClass.", root_path, class:"nav-link" %>
+        </div>
+      </div>
+      <div>
+        <%= link_to "FoodClass.", root_path, class:"nav-link" %>
+      </div>
+      <div>
+        <div class="navbar-layout-links">
+          <div>
+            <% if user_signed_in? %>
+              <%= link_to "Mon profil", root_path, class:"nav-link" %>
+            <% else %>
+              <%= link_to "Se connecter/S'inscrire", new_user_session_path, class:"nav-link" %>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to "Réserver un cours", root_path, class:"nav-link" %>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-grip-lines"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <% if user_signed_in? %>
+                <li><%= link_to "Mon profil", root_path, class:"dropdown-item" %></li>
+              <% else %>
+                <li><%= link_to "Se connecter/S'inscrire", new_user_session_path, class:"dropdown-item" %></li>
+              <% end %>
+              <li><%= link_to "Nos Chefs", root_path, class:"dropdown-item" %></li>
+              <li><%= link_to "Réserver un cours", root_path, class:"dropdown-item" %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
