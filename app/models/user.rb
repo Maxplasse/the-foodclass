@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :participations
   has_many :emojis
   has_many :comments
+
+  has_one_attached :photo
 end

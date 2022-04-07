@@ -1,0 +1,29 @@
+.devise-container {
+  margin-top: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-login {
+  margin-top: 50px;
+  background: white;
+  padding: 30px;
+  border-radius: 4px;
+
+  h2 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 100%;
+    background: $orange;
+    color: $white;
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: $orange;
+  }
+}
