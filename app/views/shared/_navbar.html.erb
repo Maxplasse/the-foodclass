@@ -1,12 +1,12 @@
 <div class="container-foodclass">
-  <div class="navbar-foodclass">
+  <div class="navbar-foodclass fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar" data-navbar-home-value="<%= action_name == "home"%>">
     <div class="navbar-layout">
       <div class="navbar-layout-links-first">
         <div>
           <%= link_to "Nos Chefs", root_path, class:"nav-link" %>
         </div>
         <div>
-          <%= link_to "Communauté", root_path, class:"nav-link" %>
+          <%= link_to "Communauté", posts_path, class:"nav-link" %>
         </div>
       </div>
       <div class="navbar-brand-ld">
@@ -16,8 +16,8 @@
         <div class="navbar-layout-links-last">
           <div>
             <% if user_signed_in? %>
-              <%= link_to "Mon profil", root_path, class:"nav-link" %>
-              <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link" %>
+              <%= link_to "Mon profil", mon_profil_path, class:"nav-link button-profil" %>
+              <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link button-log-out" %>
             <% else %>
               <%= link_to "Se connecter/S'inscrire", new_user_session_path, class:"nav-link" %>
             <% end %>
@@ -39,14 +39,14 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if user_signed_in? %>
-              <li><%= link_to "Mon profil", root_path, class:"dropdown-item" %></li>
-              <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              <li class="dropdown-foodclass"><%= link_to "Mon profil", root_path, class:"dropdown-item" %></li>
+              <li class="dropdown-foodclass"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item dropdown-foodclass" %></li>
             <% else %>
-              <li><%= link_to "Se connecter/S'inscrire", new_user_session_path, class:"dropdown-item" %></li>
+              <li class="dropdown-foodclass"><%= link_to "Se connecter/S'inscrire", new_user_session_path, class:"dropdown-item dropdown-foodclass" %></li>
             <% end %>
-            <li><%= link_to "Communauté", root_path, class:"dropdown-item" %></li>
-            <li><%= link_to "Nos Chefs", root_path, class:"dropdown-item" %></li>
-            <li><%= link_to "Réserver un cours", root_path, class:"dropdown-item" %></li>
+            <li class="dropdown-foodclass"><%= link_to "Communauté", root_path, class:"dropdown-item dropdown-foodclass" %></li>
+            <li class="dropdown-foodclass"><%= link_to "Nos Chefs", root_path, class:"dropdown-item dropdown-foodclass" %></li>
+            <li class="dropdown-foodclass"><%= link_to "Réserver un cours", root_path, class:"dropdown-item dropdown-foodclass" %></li>
           </ul>
         </div>
       </div>

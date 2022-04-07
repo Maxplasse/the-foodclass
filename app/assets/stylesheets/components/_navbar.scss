@@ -1,6 +1,7 @@
 .navbar-layout {
   display: flex;
   justify-content: space-between;
+  margin: 0 40px;
 }
 
 .navbar-layout-sd-md {
@@ -15,20 +16,21 @@
 .navbar-layout-links-first {
   display: flex;
   justify-content: flex-start;
+  height: 75px;
+  align-items: center;
 }
 
 .navbar-layout-links-last {
   display: flex;
   justify-content: flex-end;
+  height: 75px;
+  align-items: center;
 }
 
 .navbar-layout-sd-md {
   display: flex;
   justify-content: flex-end;
-}
 
-.navbar-foodclass {
-  height: 75px;
   a {
     // pour aligner verticalement le texte dans la navbar
     height: 75px;
@@ -36,6 +38,32 @@
     display: flex;
   }
 }
+
+.dropdown-foodclass {
+  height: 36px;
+}
+
+.navbar-foodclass {
+  height: 75px;
+  z-index: 101;
+  background-color: transparent;
+  transition: 0.1s background-color ease;
+}
+
+.navbar-brand-ld {
+  a {
+    // pour aligner verticalement le texte dans la navbar
+    height: 75px;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.navbar-foodclass-white {
+  background-color: white;
+  border-bottom: solid 1px silver;
+}
+
 
 @media(max-width:414px){
   .container-foodclass {
