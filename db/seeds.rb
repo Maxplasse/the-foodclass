@@ -155,58 +155,58 @@ p "2"
 
 chefs_h = [
   {
-    restaurants_names: "",
-    genre: "",
-    title: "",
-    subtitle: "",
+    restaurants_names: "La Cabane à matelot",
+    genre: "male",
+    title: "Chef",
+    subtitle: "Top Chef saison 13",
     user: ambroisev
   },
   {
     restaurants_names: "",
-    genre: "",
+    genre: "male",
     title: "",
-    subtitle: "",
+    subtitle: "Top Chef saison 13",
     user: liliand
   },
   {
     restaurants_names: "",
-    genre: "",
+    genre: "female",
     title: "",
-    subtitle: "",
+    subtitle: "Top Chef saison 12",
     user: chloec
   },
   {
-    restaurants_names: "",
-    genre: "",
-    title: "",
-    subtitle: "",
+    restaurants_names: "Mosuke",
+    genre: "male",
+    title: "Chef",
+    subtitle: "Top Chef saison 11",
     user: morys
   },
   {
-    restaurants_names: "",
-    genre: "",
-    title: "",
-    subtitle: "",
+    restaurants_names: "Vacarme",
+    genre: "female",
+    title: "Chef",
+    subtitle: "Top Chef saison 12",
     user: sarahm
   },
   {
     restaurants_names: "",
-    genre: "",
+    genre: "female",
     title: "",
-    subtitle: "",
+    subtitle: "Top Chef saison 10",
     user: alexiad
   },
   {
     restaurants_names: "",
-    genre: "",
+    genre: "male",
     title: "",
-    subtitle: "",
+    subtitle: "Top Chef saison 12",
     user: pierrec
   },
   {
-    restaurants_names: "",
-    genre: "",
-    title: "",
+    restaurants_names: "L'Etoile Berbère",
+    genre: "male",
+    title: "Chef",
     subtitle: "",
     user: amarm
   }
@@ -216,7 +216,7 @@ p "3"
 
 chefs = chefs_h.map do |chef|
   c = Chef.new(chef)
-  c.save
+  c.save!
   c
 end
 
