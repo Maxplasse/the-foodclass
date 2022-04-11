@@ -43,12 +43,6 @@
   height: 36px;
 }
 
-.navbar-foodclass {
-  height: 75px;
-  z-index: 101;
-  background-color: transparent;
-  transition: 0.1s background-color ease;
-}
 
 .navbar-brand-ld {
   a {
@@ -59,80 +53,98 @@
   }
 }
 
+.navbar-foodclass {
+  height: 75px;
+  z-index: 101;
+  background-color: transparent;
+  transition: 0.1s background-color ease;
+
+  .nav-link {
+    color: white;
+    font-family: $body-font;
+  }
+
+  .foodclass-brand {
+    display: none;
+  }
+
+  .button-réserver {
+    background-color: white;
+    color: $orange;
+    margin-right: 5px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px 7px;
+    margin: 0px 17px;
+    opacity: 1;
+  }
+}
+
 .navbar-foodclass-white {
   background-color: white;
   border-bottom: solid 1px silver;
-}
 
-
-@media(max-width:414px){
-  .container-foodclass {
-    margin: 0px 20px;
+  .nav-link {
+    color: $navy;
+    font-family: $body-font;
   }
 
-  .navbar-layout-links-first {
-    display: none;
+  .foodclass-brand {
+    color: $orange;
+    display: flex;
+    font-family: $headers-font;
+    font-size: 2.2rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   }
 
-  .navbar-layout-links-last {
-    display: none;
+  .button-réserver {
+    background-color: $orange;
+    color: white;
+    margin-right: 5px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px 7px;
+    margin: 0px 17px;
+    opacity: 1;
   }
 
   .navbar-brand-ld {
-    display: none;
+    color: $orange;
   }
-
-  .navbar-brand-sd-md {
-    position: absolute;
-    left: calc(50vw - 67px);
-    a {
-      font-size: 1.3rem;
-    }
-  }
-
-  #dropdown-link-sd-md {
-    width: 140px;
-    display: flex;
-    justify-content: flex-end;
-  }
-
 }
 
-@media(max-width:768px){
+
+@media(min-width:1201px){
   .container-foodclass {
-    margin: 0px 40px;
+    margin: 0px 60px;
   }
 
   .navbar-layout-links-first {
-    display: none;
+    width: 380px;
+    font-size: 1rem;
   }
 
   .navbar-layout-links-last {
-    display: none;
-  }
-
-  .navbar-brand-ld {
-    display: none;
-  }
-
-  .navbar-brand-sd-md {
-    position: absolute;
-    left: calc(50vw - 67px);
-    a {
-      font-size: 1.3rem;
-    }
-  }
-
-  #dropdown-link-sd-md {
-    width: 140px;
-    display: flex;
-    justify-content: flex-end;
+    width: 380px;
+    font-size: 1rem;
   }
 }
 
-@media(min-width:993px){
-  .dropdown-md-sd {
-    display: none;
+@media(max-width:1200px){
+  .container-foodclass {
+    margin: 0px 60px;
+  }
+
+  .navbar-layout-links-first {
+    width: 350px;
+    font-size: 1rem;
+  }
+
+  .navbar-layout-links-last {
+    width: 350px;
+    font-size: 1rem;
   }
 }
 
@@ -159,7 +171,7 @@
 
   .navbar-brand-sd-md {
     position: absolute;
-    left: calc(50vw - 67px);
+    left: calc(50vw - 86px);
     a {
       font-size: 1.3rem;
     }
@@ -168,39 +180,81 @@
   #dropdown-link-sd-md {
     width: 140px;
     display: flex;
-    justify-content: flex-end;
+    padding-left: 45px;
+    justify-content: flex-start;
   }
 
 }
 
-@media(max-width:1200px){
-  .container-foodclass {
-    margin: 0px 60px;
-  }
-
-  .navbar-layout-links-first {
-    width: 350px;
-    font-size: 14px;
-  }
-
-  .navbar-layout-links-last {
-    width: 350px;
-    font-size: 14px;
+@media(min-width:993px){
+  .dropdown-md-sd {
+    display: none;
   }
 }
 
-@media(min-width:1201px){
+@media(max-width:768px){
   .container-foodclass {
-    margin: 0px 60px;
+    margin: 0px 40px;
   }
 
   .navbar-layout-links-first {
-    width: 380px;
-    font-size: 14px;
+    display: none;
   }
 
   .navbar-layout-links-last {
-    width: 380px;
-    font-size: 14px;
+    display: none;
   }
+
+  .navbar-brand-ld {
+    display: none;
+  }
+
+  .navbar-brand-sd-md {
+    position: absolute;
+    left: calc(50vw - 86px);
+    a {
+      font-size: 1.3rem;
+    }
+  }
+
+  #dropdown-link-sd-md {
+    width: 140px;
+    display: flex;
+    padding-left: 78px;
+    justify-content: flex-start;
+  }
+}
+
+@media(max-width:414px){
+  .container-foodclass {
+    margin: 0px 20px;
+  }
+
+  .navbar-layout-links-first {
+    display: none;
+  }
+
+  .navbar-layout-links-last {
+    display: none;
+  }
+
+  .navbar-brand-ld {
+    display: none;
+  }
+
+  .navbar-brand-sd-md {
+    .foodclass-brand {
+      font-size: 1.6rem;
+      position: absolute;
+      left: calc(50vw - 180px);
+    }
+  }
+
+  #dropdown-link-sd-md {
+    width: 140px;
+    display: flex;
+    padding-left: 82px;
+    justify-content: flex-start;
+  }
+
 }
