@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static values = {
-    home: Boolean,
+    home: Boolean
   }
 
   connect() {
@@ -11,6 +11,7 @@ export default class extends Controller {
 
   updateNavbar() {
     if (!this.homeValue) return ;
+    if (!this.homeValue) this.element.classList.add ;
 
     if (window.scrollY > (window.innerHeight-75)) {
       this.element.classList.add("navbar-foodclass-white")
