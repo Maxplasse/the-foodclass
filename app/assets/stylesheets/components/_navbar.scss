@@ -64,6 +64,12 @@
     font-family: $body-font;
   }
 
+  #dropdown-link-sd-md {
+    a {
+      color: white;
+    }
+  }
+
   .foodclass-brand {
     display: none;
   }
@@ -97,6 +103,12 @@
     padding: 0.5rem 1rem;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+
+  #dropdown-link-sd-md {
+    a {
+      color: $navy;
+    }
   }
 
   .button-réserver {
@@ -211,7 +223,7 @@
 
   .navbar-brand-sd-md {
     position: absolute;
-    left: calc(50vw - 86px);
+    left: calc(50vw - 100px);
     a {
       font-size: 1.3rem;
     }
@@ -246,7 +258,7 @@
     .foodclass-brand {
       font-size: 1.6rem;
       position: absolute;
-      left: calc(50vw - 180px);
+      left: calc(50vw - 186px);
     }
   }
 
