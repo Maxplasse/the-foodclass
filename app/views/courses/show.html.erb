@@ -1,2 +1,85 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<body style="background-color:white;">
+<div class="container">
+  <div id="show-title" class="highlight-title">
+    <h3><%= @course.title %></h3>
+  </div>
+  <div class="flex-title">
+    <div>
+      <p><strong> Date du cours : <%= l(@course.starts_at, format: "%A %d %B %Y, %Hh%M") %></strong></p>
+    </div>
+    <% if @course.ends_at > Time.now %>
+      <div class="btn-flex">
+        <button class="button-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Réserver</button>
+      </div>
+    <% end %>
+  </div>
+  <div class="flex-photo-description">
+    <div>
+      <%= image_tag @course.photo, class: "photo-course" %>
+    </div>
+    <div>
+      <div>
+        <div class="chef-detail">
+          <h3 class="chef">
+          <% if @course.chef.genre == "female" %>
+            <h3>Cheffe</h3>
+          <% else %>
+            <h3>Chef</h3>
+          <% end %>
+          <%= @course.chef.user.first_name %> <%= @course.chef.user.last_name %></h3>
+        </div>
+        <p>Temps de réalisation : <%= @course.duration %> minutes</p>
+        <p>Difficulté : <%= @course.difficulty %></p>
+        <p>Nombre de <i class="fas fa-carrot"></i> </p>
+      </div>
+      <div class="main-checkbox <%="past_courses" if @course.ends_at < Time.now %>">
+        <h3>Ingrédients</h3>
+        <div class="card-show-infos">
+          <p>Pour 2 personnes :</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%# modal réservation %>
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalLabel">Détails de votre réservation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p><strong> Date du cours : <%= l(@course.starts_at, format: "%A %d %B %Y, %Hh%M") %></strong></p>
+          <p><strong>Chef·fe : <%= @course.chef.user.first_name %> <%= @course.chef.user.last_name %></strong></p>
+          <p><strong>Temps de réalisation : <%= @course.duration %> minutes</strong></p>
+          <p><strong>Difficulté : <%= @course.difficulty %></strong></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#confirmationBookingModal">Confirmer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="confirmationBookingModal" aria-hidden="true" aria-labelledby="bookingModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalToggleLabel2">Réservation confirmée !</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        👩🏽‍🍳Votre réservation a bien été prise en compte. Merci !🧑🏽‍🍳
+        <br>
+        Vous allez recevoir un email avec le récapitulatif du cours et un lien pour vous connecter à la diffusion.
+      </div>
+      <div class="modal-footer">
+        <button class="button" data-bs-target="#bookingModalToggle" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

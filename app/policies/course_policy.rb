@@ -4,9 +4,17 @@ class CoursePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-    def index?
-      return true
-    end
   end
+
+  def index?
+    return true
+  end
+
+  def show?
+    return true
+  end
+
+  # def create?
+  #   true
+  # end
 end
