@@ -1,8 +1,33 @@
-.main-banner {
-  background-image: linear-gradient(rgba(0,0,0,0.22),rgba(0,0,0,0.01)), url('https://images.pexels.com/photos/4686816/pexels-photo-4686816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  background-size: cover;
-  height: 100vh;
-  color: #eee;
-  text-align: center;
-  position: relative;
+@media(min-width:769px){
+  .main-banner {
+    background-image: linear-gradient(rgba(0,0,0,0.22),rgba(0,0,0,0.01)), url('https://images.pexels.com/photos/4686816/pexels-photo-4686816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    height: 100vh;
+    color: #eee;
+    text-align: center;
+    position: relative;
+  }
+  .main-banner-sd {
+    display: none;
+  }
+  .main-banner-md {
+    display: none;
+  }
+}
+
+@media(max-width:768px){
+  .main-banner {
+    display: none;
+  }
+  .main-banner-sd {
+    display: none;
+  }
+  .main-banner-md {
+    background-image: linear-gradient(rgba(0,0,0,0.22),rgba(0,0,0,0.01)), url('tablette-banner.jpg');
+    background-size: cover;
+    height: 100vh;
+    color: #eee;
+    text-align: center;
+    position: relative;
+  }
 }
