@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :chef
-  has_many :participations
-  has_many :emojis
-  has_many :comments
+  has_many :courses, through: :chef
+  has_many :participations, dependent: :destroy
+  has_many :emojis, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :courses_as_participant, through: :participations, source: :course
 
   has_one_attached :photo
 end

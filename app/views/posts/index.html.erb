@@ -1,0 +1,33 @@
+<body style="background-color: #FFF9F9;">
+<div class="container">
+  <div class="flex-title">
+    <div class="community-title">
+      <h3>Bienvenue sur la communauté FoodClass.</h3>
+    </div>
+    <% if current_user.participations.count != 0 %>
+      <p>
+        <a class="button-book" data-bs-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Partager un post !
+        </a>
+      </p>
+    <% end %>
+  </div>
+  <%= simple_form_for @post do |f| %>
+    <div class="collapse" id="collapseForm">
+      <span>
+        <%= f.input :content, class: "form-white", label: false, placeholder: "Partager un post ici" %>
+      </span>
+      <div class="d-flex" style="align-items: flex-start;">
+        <div class="card-new-form">
+          <%= f.association :course, label: false, collection: @courses, prompt: "Quel cours ?" %>
+        </div>
+        <div class="card-new-form" >
+          <%= f.input :photo, label: false, as: :file %>
+        </div>
+        <div>
+          <%= f.submit "Publier", class: "button-small"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
