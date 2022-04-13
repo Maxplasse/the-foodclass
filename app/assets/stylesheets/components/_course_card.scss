@@ -1,0 +1,48 @@
+.background-color {
+  background-color: white;
+}
+
+#show-title {
+  margin: 128px 0 50px;
+  color: $navy;
+}
+
+.btn-flex {
+  padding: 0px 70px;
+}
+
+.highlight-title {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 48%, #FFCEB0 48%);
+  display: inline-block;
+}
+
+.flex-title {
+  display: flex;
+  align-items: baseline;
+}
+
+.photo-course {
+  height: 62vh;
+  width: 38vw;
+  object-fit: cover;
+}
+
+.main-checkbox {
+  padding-top: 30px;
+ &.past_courses {
+   input[type="checkbox"] {
+     display: none;
+    }
+ }
+ h3 {
+  border-left: 5px solid $orange;
+  padding-left: 16px;
+  }
+}
+
+.chef-detail {
+  h3 {
+    border-left: 5px solid $orange;
+    padding-left: 16px;
+    }
+}
