@@ -10,7 +10,7 @@
       <span>
         <%= @course.chef.user.first_name %> <%= @course.chef.user.last_name %></h3>
         <div>
-          <%= image_tag @course.chef.user.photo, class:"avatar-chef-md-sd" %>
+          <%= cl_image_tag @course.chef.user.photo.key, class:"avatar-chef-md-sd" %>
         </div>
       </span>
     </div>
@@ -35,6 +35,6 @@
     </div>
   </div>
   <div>
-    <%= image_tag @course.chef.user.photo, class:"avatar-chef" %>
+    <%= cl_image_tag @course.chef.user.photo.key, class:"avatar-chef" %>
   </div>
 </div>
