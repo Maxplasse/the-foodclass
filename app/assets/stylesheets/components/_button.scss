@@ -10,10 +10,11 @@
 }
 
 .button-book {
-  background-color: #F74C25;
+  background-color: white;
   border: none;
-  color: white;
+  color: $orange;
   text-align: center;
+  border: solid 2px $orange;
   opacity: 0.9;
   transition: 0.3s;
   display: inline-block;
