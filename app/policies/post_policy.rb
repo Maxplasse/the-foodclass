@@ -8,4 +8,10 @@ class PostPolicy < ApplicationPolicy
   def index?
     true
   end
+  def create?
+    record.course.in? user.courses_as_participant.where("ends_at < ?", Time.now)
+  end
+  def destroy?
+    record.participation.user == user
+  end
 end

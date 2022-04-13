@@ -37,7 +37,7 @@ class PostsController < ApplicationController
         redirect_to posts_path
       else
         @posts = policy_scope(Post).order(posted_at: :desc)
-        @courses = current_user.courses_as_participant.where("end_at < ?", Time.now)
+        @courses = current_user.courses_as_participant.where("ends_at < ?", Time.now)
         render 'posts/index'
       end
     end
