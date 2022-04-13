@@ -1,0 +1,12 @@
+<% @posts.each do |post| %>
+  <div class="card-community">
+    <%= image_tag post.participation.user.photo, class:"avatar-large" %>
+    <p><%= post.participation.user.nickname %> a commenté la recette <span class="card-community-title"> <%= link_to post.course.title, course_path(post.course) %></span> par
+      <%= post.course.chef.user.first_name %>
+      <%= post.course.chef.user.last_name %>
+    </p>
+    <%= post.content %>
+    <%= post.posted_at %>
+    <%= cl_image_tag post.photo.key, class: "photo-course" %>
+  </div>
+<% end %>
