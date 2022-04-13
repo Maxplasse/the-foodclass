@@ -15,7 +15,7 @@
   </div>
   <div class="flex-photo-description">
     <div>
-      <%= image_tag @course.photo, class: "photo-course" %>
+      <%= cl_image_tag @course.photo.key, class: "photo-course" %>
     </div>
     <div class="card-course-lg">
       <%= render 'shared/card_course' %>
