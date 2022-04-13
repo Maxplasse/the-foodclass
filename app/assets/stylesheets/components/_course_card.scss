@@ -175,7 +175,7 @@ input[type="checkbox"]:checked:after {
   }
   .flex-title {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
   }
   .avatar-chef {
     display: none;
@@ -204,11 +204,11 @@ input[type="checkbox"]:checked:after {
     object-fit: cover;
   }
   .btn-flex {
-    padding: 0px 30px;
+    padding: 0px 0px;
   }
   .flex-title {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
   }
   .avatar-chef {
     display: none;
