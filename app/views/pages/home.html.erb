@@ -1,7 +1,11 @@
+<body style="background-color: #FFF9F9;">
 <div class="main-banner">
   <h1 class="title" data-controller="title" data-action="scroll@window->title#updateTitleSize">FoodClass.</h1>
 </div>
 <div class="main-banner-md">
+  <h1 class="title" data-controller="title" data-action="scroll@window->title#updateTitleSize">FoodClass.</h1>
+</div>
+<div class="main-banner-sd">
   <h1 class="title" data-controller="title" data-action="scroll@window->title#updateTitleSize">FoodClass.</h1>
 </div>
 <div class="container">
@@ -12,3 +16,4 @@
 
   <%= link_to "Voir tous les cours", courses_path  %>
 </div>
+<%= render 'shared/footer' %>

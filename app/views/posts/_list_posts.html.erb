@@ -13,6 +13,51 @@
     <div class="card-content">
       <p><%= post.content %></p>
       <%= cl_image_tag post.photo.key, class: "photo-course-community" %>
+      <div class="wrapper-emoji-comms">
+        <div>
+          <%= render 'shared/emojis', post: post %>
+        </div>
+        <div>
+          <p>
+            <a class="text-comments" data-bs-toggle="collapse" href="#collapseComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+              <% if post.comments.count == 0 %>
+                <span style="font-weight:500">Commenter</span>
+              <% else %>
+               <%= pluralize(post.comments.count,"commentaire", "commentaires") %>
+              <% end %>
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
+      <div class="collapse" id="collapseComments">
+        <% post.comments.each do |comment| %>
+          <div class="card-community-comments" id="comment-<%= comment.id %>">
+            <div class="wrapper-comments">
+              <div class="wrapper-comments-avatar">
+                <%= image_tag comment.user.photo, class: "avatar-mini" %>
+                <div class="post-comment-content">
+                  <p><%= comment.content %></p>
+                </div>
+              </div>
+              <div class="button-delete-comment">
+                <% if current_user.comments.include? comment %>
+                  <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Es-tu sûr?" } do %>
+                    <%= image_tag("cancel.png") %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="card-content">
+          <%= simple_form_for [post, comment = Comment.new], remote: true do |f| %>
+            <%= f.input :content, label: false %>
+            <div class="button-comment-dropdown">
+                <%= f.submit "Commenter", label: false, class: "button-small" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
   </div>
 <% end %>
