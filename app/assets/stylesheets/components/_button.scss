@@ -8,6 +8,47 @@
   display: inline-block;
   text-decoration: none;
 }
+.button-white {
+  background-color: white;
+  border: none;
+  color: #F74C25;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+  opacity: 0.9;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button-small {
+  background-color: #F74C25;
+  border: none;
+  color: white;
+  padding: 5px 4px;
+  margin-top: 5px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0px 2px;
+  opacity: 1;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #F74C25;
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+.button-delete-comment img {
+  width: 30px;
+  height: 26px;
+  font-weight: 500;
+}
 
 .button-book {
   background-color: #F74C25;

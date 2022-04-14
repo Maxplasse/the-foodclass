@@ -1,0 +1,24 @@
+.wrapper-emojis {
+  display: flex;
+  margin-top: 10px;
+  .form-select {
+    max-width: 10px;
+    padding: 0.2rem 5.25rem 0.2rem 0.75rem;
+    background-image: url('emoji.png');
+    background-color: white;
+    background-size: 75px 56px;
+    border: none;
+  }
+}
+
+.wrapper-emoji-comms {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: $orange;
+    text-decoration: none;
+    font-weight: 500;
+  }
+}

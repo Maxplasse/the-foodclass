@@ -37,6 +37,24 @@
   object-fit: cover;
 }
 
+.card-community-comments {
+  margin: 14px 42px 10px 42px;
+  padding: 10px;
+  padding-top: 21px;
+  border-radius: 4px;
+  position: relative;
+  background-color: #FCE0DC30;
+}
+
+.wrapper-comments {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-comments-avatar {
+  display: flex;
+}
+
 @media(min-width:1201px){
   .card-community {
     margin: 10px 170px 30px;
