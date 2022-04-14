@@ -8,6 +8,9 @@
         <div>
           <%= link_to "Communauté", posts_path, class:"nav-link" %>
         </div>
+        <div>
+          <%= link_to "A propos", root_path, class:"nav-link" %>
+        </div>
       </div>
       <div class="navbar-brand-ld">
         <%= link_to "FoodClass.", root_path, class:"foodclass-brand" %>
@@ -15,9 +18,10 @@
       <div>
         <div class="navbar-layout-links-last">
           <div>
-            <% if user_signed_in? %>
-              <%= link_to "Mon profil", mon_profil_path, class:"nav-link" %>
+            <% if user_signed_in? && current_page?(mon_profil_path) %>
               <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link button-log-out" %>
+            <% elsif user_signed_in? && !current_page?(mon_profil_path) %>
+              <%= link_to "Mon profil", mon_profil_path, class:"nav-link"%>
             <% else %>
               <%= link_to "Se connecter/S'inscrire", new_user_session_path, class:"nav-link" %>
             <% end %>

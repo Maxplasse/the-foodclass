@@ -10,15 +10,18 @@
 }
 
 .button-book {
-  background-color: white;
+  background-color: #F74C25;
   border: none;
-  color: $orange;
+  color: white;
   text-align: center;
-  border: solid 2px $orange;
   opacity: 0.9;
   transition: 0.3s;
   display: inline-block;
   text-decoration: none;
+}
+
+.button-book:hover {
+  color: white;
 }
 
 @media(max-width:414px){

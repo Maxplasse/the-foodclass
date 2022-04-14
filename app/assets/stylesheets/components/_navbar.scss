@@ -39,11 +39,6 @@
   }
 }
 
-.dropdown-foodclass {
-  height: 36px;
-}
-
-
 .navbar-brand-ld {
   a {
     // pour aligner verticalement le texte dans la navbar
@@ -51,6 +46,10 @@
     align-items: center;
     display: flex;
   }
+}
+
+#navbarDropdownMenuLink {
+  height: 75px;
 }
 
 .navbar-foodclass {
@@ -64,10 +63,9 @@
     font-family: $body-font;
   }
 
-  #dropdown-link-sd-md {
-    a {
-      color: white;
-    }
+  #navbarDropdownMenuLink {
+    color: white;
+    height: 75px;
   }
 
   .foodclass-brand {
@@ -105,10 +103,9 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   }
 
-  #dropdown-link-sd-md {
-    a {
-      color: $navy;
-    }
+  #navbarDropdownMenuLink {
+    color: $navy;
+    height: 75px;
   }
 
   .button-réserver {
