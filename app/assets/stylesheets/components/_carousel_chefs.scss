@@ -4,7 +4,13 @@
 
 .container-chef {
   width: 100%;
-  height: 400px;
+  height: 500px;
+  h3 {
+    color: $orange;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
 }
 .card {
   width: 220px;
@@ -21,63 +27,124 @@
     color: $orange;
     position: absolute;
     top: -253px;
-    left: 24%;
+    left: 32%;
   }
 }
 
+.card-color-reverse:before {
+  background: $tangerine;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 53%;
+  width: 61%;
+  height: 290px;
+  border-radius: 0 150px 150px 0;
+}
+
+.card-color-reverse:after {
+  background: $abricot;
+  position: absolute;
+  content: "";
+  right: 0;
+  top:53%;
+  width: 61%;
+  height: 290px;
+  border-radius: 150px 0 0 150px;
+}
+.card-color:before {
+  background: $abricot;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 53%;
+  width: 61%;
+  height: 290px;
+  border-radius: 0 150px 150px 0;
+}
+
+.card-color:after {
+  background: $tangerine;
+  position: absolute;
+  content: "";
+  right: 0;
+  top:53%;
+  width: 61%;
+  height: 290px;
+  border-radius: 150px 0 0 150px;
+}
+
 .card:nth-of-type(1) {
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: calc(50% - 110px);
 }
+
 .card:nth-of-type(2) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2637px);
   left: 2276px;
-  transform: rotate(-6deg)
+  transform: rotate(-6deg);
 }
+
 .card:nth-of-type(3) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2597px);
   left: 2017px;
   transform: rotate(-12deg);
 }
+
 .card:nth-of-type(4) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2638px);
   right: 2276px;
   transform: rotate(6deg)
 }
+
 .card:nth-of-type(5) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2597px);
   right: 2017px;
   transform: rotate(12deg);
 }
+
 .card:nth-of-type(6) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2529px);
   left: 1761px;
   transform: rotate(-18deg);
 }
+
 .card:nth-of-type(7) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2529px);
   right: 1761px;
   transform: rotate(18deg);
 }
+
 .card:nth-of-type(8) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2436px);
   right: 1517px;
   transform: rotate(24deg);
 }
+
 .card:nth-of-type(9) {
+  overflow: hidden;
   position: absolute;
   top: calc(50% - 2436px);
   left: 1517px;
   transform: rotate(-24deg);
 }
+
 
 .card .title {
   margin-bottom: 20px;
@@ -115,7 +182,7 @@
 @media(min-width:768px){
   #button-prev {
     position: absolute;
-    top: 80%;
+    top: 68%;
     left: 53%;
     img {
       width: 57px;
@@ -124,7 +191,7 @@
   }
   #button-next {
     position: absolute;
-    top: 80%;
+    top: 68%;
     right: 52%;
     img {
       width: 57px;
@@ -137,7 +204,7 @@
 @media(max-width:768px){
   #button-prev {
     position: absolute;
-    top: 80%;
+    top: 68%;
     left: 56%;
     img {
       width: 57px;
@@ -146,7 +213,7 @@
   }
   #button-next {
     position: absolute;
-    top: 80%;
+    top: 68%;
     right: 56%;
     img {
       width: 57px;
