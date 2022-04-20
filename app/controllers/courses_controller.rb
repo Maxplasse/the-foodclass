@@ -3,6 +3,12 @@ class CoursesController < ApplicationController
 
   def index
     @courses = policy_scope(Course).order(created_at: :desc)
+
+    if params[:query].present?
+      @courses = policy_scope(Course).order(created_at: :desc).global_search(params[:query])
+    else
+      @courses = policy_scope(Course).order(created_at: :desc)
+    end
   end
 
   def show
