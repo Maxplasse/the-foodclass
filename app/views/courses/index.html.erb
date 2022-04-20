@@ -1,44 +1,50 @@
 <div class="container">
-  <div id="index-title">
-    <h1>Réservez votre cours</h1>
-  </div>
+  <div class="index-cards">
+    <div id="index-title">
+      <h1>Réservez votre cours</h1>
+    </div>
 
-  <%= form_tag courses_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Rechercher"
-    %>
-    <%= submit_tag "Rechercher", class: "btn btn-primary" %>
-  <% end %>
+    <%= form_tag courses_path, class: "index-form", method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Rechercher"
+      %>
+      <%= submit_tag "Rechercher", class: "button" %>
+    <% end %>
 
-  <div class="cards">
-    <% @courses.each do |course| %>
+    <div class="cards">
+      <% @courses.each do |course| %>
 
-      <% if course.starts_at > Time.now %>
-        <div class="card-course">
-          <%= link_to course_path(course) do %>
-            <%= cl_image_tag course.photo.key, crop: :fill %>
-            <div class="course-infos">
-              <div class="course-chef">
-                <h2><%= course.title %></h2>
-                <% if course.chef.genre == "female" %>
-                  <p>Cheffe <%= course.chef.user.first_name %> <%= course.chef.user.last_name %></p>
-                <% else %>
-                  <p>Chef <%= course.chef.user.first_name %> <%= course.chef.user.last_name %></p>
-                <% end %>
+        <% if course.starts_at > Time.now %>
+          <div class="card-course">
+            <%= link_to course_path(course) do %>
+              <%= cl_image_tag course.photo.key, crop: :fill %>
+              <div class="course-infos">
+                <div class="course-chef">
+                  <h2><%= course.title %></h2>
+                  <% if course.chef.genre == "female" %>
+                    <p>Cheffe <%= course.chef.user.first_name %> <%= course.chef.user.last_name %></p>
+                  <% else %>
+                    <p>Chef <%= course.chef.user.first_name %> <%= course.chef.user.last_name %></p>
+                  <% end %>
+                </div>
+                <div class="course-date">
+                  <div>
+                    <p><%= l(course.starts_at, format: "%d %B %Y, %Hh%M") %></p>
+                  </div>
+                  <div class="course-time">
+                    <p><i class="fas fa-clock"></i> <%= course.duration %> minutes</p>
+                  </div>
+                </div>
               </div>
-              <div class="course-time">
-                <p><%= l(course.starts_at, format: "%A %d %B %Y, %Hh%M") %></p>
-                <p><%= course.duration %> minutes</p>
-              </div>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+
+        <% end %>
 
       <% end %>
-
-    <% end %>
+    </div>
   </div>
 </div>
 
