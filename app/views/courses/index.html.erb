@@ -3,11 +3,19 @@
     <h1>Réservez votre cours</h1>
   </div>
 
+  <%= form_tag courses_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Rechercher"
+    %>
+    <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+  <% end %>
+
   <div class="cards">
     <% @courses.each do |course| %>
 
       <% if course.starts_at > Time.now %>
-
         <div class="card-course">
           <%= link_to course_path(course) do %>
             <%= cl_image_tag course.photo.key, crop: :fill %>
