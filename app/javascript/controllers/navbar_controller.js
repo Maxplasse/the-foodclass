@@ -12,7 +12,7 @@ export default class extends Controller {
   updateNavbar() {
     if (!this.homeValue) return ;
 
-    if (window.scrollY > (window.innerHeight-75)) {
+    if (window.scrollY > (window.innerHeight-90)) {
       this.element.classList.add("navbar-foodclass-white")
     } else {
       this.element.classList.remove("navbar-foodclass-white")

@@ -7,18 +7,23 @@
   color: $navy;
 }
 
-.btn-flex {
-  padding: 0px 70px;
-}
-
 .highlight-title {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 48%, #FFCEB0 48%);
   display: inline-block;
 }
 
+.highlight-seconde-title {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 62%, $tangerine 67%);
+  display: inline-block;
+}
+
+.second-title h3{
+  margin: 50px 0px 40px;
+}
+
 .flex-title {
   display: flex;
-  align-items: baseline;
+  justify-content: space-between;
 }
 
 .main-checkbox {
@@ -119,6 +124,14 @@ input[type="checkbox"]:checked:after {
   display: block;
 }
 
+.card-show-post {
+  box-shadow: 0px 0px 5px rgba(0,0,0, 0.1);
+  border-radius: 4px;
+  font-family: $body-font;
+  background-color: white;
+  padding: 20px;
+}
+
 @media(min-width:1201px){
   .card-course-lg {
     display: contents;
@@ -131,6 +144,16 @@ input[type="checkbox"]:checked:after {
     width: 43vw;
     object-fit: cover;
   }
+
+  .card-show-post {
+    margin-right: 330px;
+    margin-bottom: 20px;
+  }
+
+  .flex-title {
+    width: 43vw;
+  }
+
   .avatar-chef-md-sd {
     display: none;
   }
@@ -148,6 +171,11 @@ input[type="checkbox"]:checked:after {
     width: 43vw;
     object-fit: cover;
   }
+
+  .flex-title {
+    width: 43vw;
+  }
+
   .avatar-chef-md-sd {
     display: none;
   }
@@ -169,6 +197,9 @@ input[type="checkbox"]:checked:after {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  .flex-title {
+    width: 100%;
   }
   .btn-flex {
     padding: 0px 0px;
@@ -202,6 +233,9 @@ input[type="checkbox"]:checked:after {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  .flex-title {
+    width: 100%;
   }
   .btn-flex {
     padding: 0px 0px;
@@ -240,6 +274,9 @@ input[type="checkbox"]:checked:after {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  .flex-title {
+    width: 100%;
   }
   .btn-flex {
     padding: 0px 0px;
