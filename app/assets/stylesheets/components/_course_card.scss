@@ -3,8 +3,12 @@
 }
 
 #show-title {
-  margin: 128px 0 50px;
+  margin: 128px auto 10px;
   color: $navy;
+  text-align: center;
+}
+.container-title {
+  text-align: center;
 }
 
 .highlight-title {
@@ -17,13 +21,28 @@
   display: inline-block;
 }
 
-.second-title h3{
-  margin: 50px 0px 40px;
+.second-title {
+  z-index: 100;
+  position: relative;
+
+  h3{
+    position: relative;
+    margin: 100px auto 40px;
+    text-align: center;
+  }
 }
 
-.flex-title {
+
+.flex-title-show {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 50px;
+  p {
+    margin-right: 10px;
+  }
+  .button-book {
+    margin-left: 10px;
+  }
 }
 
 .main-checkbox {
@@ -66,6 +85,7 @@
   padding-left: 22px;
   margin-bottom: 5px;
 }
+
 
 
 .card-description {
@@ -132,6 +152,10 @@ input[type="checkbox"]:checked:after {
   padding: 20px;
 }
 
+.background-color {
+  background-color: #fff9f9;
+}
+
 @media(min-width:1201px){
   .card-course-lg {
     display: contents;
@@ -146,17 +170,24 @@ input[type="checkbox"]:checked:after {
   }
 
   .card-show-post {
-    margin-right: 330px;
+    position: relative;
+    margin-left: 300px;
+    margin-right: 300px;
     margin-bottom: 20px;
-  }
-
-  .flex-title {
-    width: 43vw;
   }
 
   .avatar-chef-md-sd {
     display: none;
   }
+  .background-shape img {
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: -716px;
+    bottom: 0;
+    z-index: 0;
+  }
+
 }
 
 @media(max-width:1200px){
@@ -172,13 +203,18 @@ input[type="checkbox"]:checked:after {
     object-fit: cover;
   }
 
-  .flex-title {
-    width: 43vw;
-  }
-
   .avatar-chef-md-sd {
     display: none;
   }
+  .background-shape img {
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: -673px;
+    bottom: 0;
+    z-index: 0;
+  }
+
 }
 
 @media(max-width:992px){
@@ -198,23 +234,37 @@ input[type="checkbox"]:checked:after {
     width: 100%;
     object-fit: cover;
   }
-  .flex-title {
+  .flex-title-show {
     width: 100%;
   }
   .btn-flex {
     padding: 0px 0px;
   }
-  .flex-title {
+  .flex-title-show {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   .avatar-chef {
     display: none;
+  }
+  .second-title h3 {
+    position: relative;
+    margin: 220px auto 40px;
+    text-align: center;
   }
 
   .avatar-chef-md-sd {
     display: flex;
   }
+  .background-shape img {
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: -510px;
+    bottom: 0;
+    z-index: 0;
+  }
+
 }
 
 @media(max-width:768px){
@@ -223,6 +273,12 @@ input[type="checkbox"]:checked:after {
   }
   .card-course-md-sd {
     display: contents;
+  }
+
+  .second-title h3 {
+    position: relative;
+    margin: 201px auto 10px;
+    text-align: center;
   }
 
   .card-description {
@@ -234,15 +290,15 @@ input[type="checkbox"]:checked:after {
     width: 100%;
     object-fit: cover;
   }
-  .flex-title {
+  .flex-title-show {
     width: 100%;
   }
   .btn-flex {
     padding: 0px 0px;
   }
-  .flex-title {
+  .flex-title-show {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   .avatar-chef {
     display: none;
@@ -251,6 +307,15 @@ input[type="checkbox"]:checked:after {
   .avatar-chef-md-sd {
     display: flex;
   }
+  .background-shape img {
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: -452px;
+    bottom: 0;
+    z-index: 0;
+  }
+
 }
 
 @media(max-width:414px){
@@ -275,15 +340,15 @@ input[type="checkbox"]:checked:after {
     width: 100%;
     object-fit: cover;
   }
-  .flex-title {
+  .flex-title-show {
     width: 100%;
   }
   .btn-flex {
     padding: 0px 0px;
   }
-  .flex-title {
+  .flex-title-show {
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
 
   .avatar-chef {
@@ -293,4 +358,13 @@ input[type="checkbox"]:checked:after {
   .avatar-chef-md-sd {
     display: block;
   }
+  .background-shape img {
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: -260px;
+    bottom: 0;
+    z-index: 0;
+  }
+
 }
