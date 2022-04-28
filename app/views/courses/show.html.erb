@@ -29,78 +29,80 @@
   </div>
 </div>
 <div class="second-title">
-  <div class="background-shape">
-    <%= image_tag('shape-show.png') %>
-  </div>
-  <% if @course.posts.count == 0 %>
-    <h3>Sois le premier à poster sur la <span class="highlight-seconde-title">communauté</span></h3>
-  <% else %>
-    <h3>Les posts de la <span class="highlight-seconde-title">communauté</span></h3>
-  <% end %>
-  <% @course.posts.each do |post| %>
-    <div class="background-color">
-      <div class="card-show-post">
-        <div class="flex-photo-nickname">
-          <%= image_tag post.participation.user.photo, class:"avatar-large" %>
-          <span>
-            <strong><p><%= post.participation.user.nickname %> a commenté la recette <span class="card-community-title"> <%= link_to post.course.title, course_path(post.course) %></span> par
-              <%= post.course.chef.user.first_name %>
-              <%= post.course.chef.user.last_name %></strong>
-            </p>
-            <p><strong> posté <%= l(post.posted_at, format: "%A %d %B %Y à %Hh%M") %></strong></p>
-          </span>
-        </div>
-        <div class="card-content">
-          <p><%= post.content %></p>
-          <%= cl_image_tag post.photo.key, class: "photo-course-community" %>
-          <div class="wrapper-emoji-comms">
-            <div>
-              <%= render 'shared/emojis', post: post %>
-            </div>
-            <div>
-              <p>
-                <a class="text-comments" data-bs-toggle="collapse" href="#collapseComments" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  <% if post.comments.count == 0 %>
-                    <span style="font-weight:500">Commenter</span>
-                  <% else %>
-                  <%= pluralize(post.comments.count,"commentaire", "commentaires") %>
-                  <% end %>
-                </a>
+  <% if @course.ends_at < Time.now %>
+    <div class="background-shape">
+      <%= image_tag('shape-show.png') %>
+    </div>
+    <% if @course.posts.count == 0 %>
+      <h3>Sois le premier à poster sur la <span class="highlight-seconde-title">communauté</span></h3>
+    <% else %>
+      <h3>Les posts de la <span class="highlight-seconde-title">communauté</span></h3>
+    <% end %>
+    <% @course.posts.each do |post| %>
+      <div class="background-color">
+        <div class="card-show-post">
+          <div class="flex-photo-nickname">
+            <%= image_tag post.participation.user.photo, class:"avatar-large" %>
+            <span>
+              <strong><p><%= post.participation.user.nickname %> a commenté la recette <span class="card-community-title"> <%= link_to post.course.title, course_path(post.course) %></span> par
+                <%= post.course.chef.user.first_name %>
+                <%= post.course.chef.user.last_name %></strong>
               </p>
+              <p><strong> posté <%= l(post.posted_at, format: "%A %d %B %Y à %Hh%M") %></strong></p>
+            </span>
+          </div>
+          <div class="card-content">
+            <p><%= post.content %></p>
+            <%= cl_image_tag post.photo.key, class: "photo-course-community" %>
+            <div class="wrapper-emoji-comms">
+              <div>
+                <%= render 'shared/emojis', post: post %>
+              </div>
+              <div>
+                <p>
+                  <a class="text-comments" data-bs-toggle="collapse" href="#collapseComments" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <% if post.comments.count == 0 %>
+                      <span style="font-weight:500">Commenter</span>
+                    <% else %>
+                    <%= pluralize(post.comments.count,"commentaire", "commentaires") %>
+                    <% end %>
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="collapse" id="collapseComments">
-          <% post.comments.each do |comment| %>
-            <div class="card-community-comments" id="comment-<%= comment.id %>">
-              <div class="wrapper-comments">
-                <div class="wrapper-comments-avatar">
-                  <%= image_tag comment.user.photo, class: "avatar-mini" %>
-                  <div class="post-comment-content">
-                    <p><%= comment.content %></p>
+          <div class="collapse" id="collapseComments">
+            <% post.comments.each do |comment| %>
+              <div class="card-community-comments" id="comment-<%= comment.id %>">
+                <div class="wrapper-comments">
+                  <div class="wrapper-comments-avatar">
+                    <%= image_tag comment.user.photo, class: "avatar-mini" %>
+                    <div class="post-comment-content">
+                      <p><%= comment.content %></p>
+                    </div>
+                  </div>
+                  <div class="button-delete-comment">
+                    <% if current_user.comments.include? comment %>
+                      <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Es-tu sûr?" } do %>
+                        <%= image_tag("cancel.png") %>
+                      <% end %>
+                    <% end %>
                   </div>
                 </div>
-                <div class="button-delete-comment">
-                  <% if current_user.comments.include? comment %>
-                    <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Es-tu sûr?" } do %>
-                      <%= image_tag("cancel.png") %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <div class="card-content">
-            <%= simple_form_for [post, comment = Comment.new], remote: true do |f| %>
-              <%= f.input :content, label: false %>
-              <div class="button-comment-dropdown">
-                  <%= f.submit "Commenter", label: false, class: "button-small" %>
               </div>
             <% end %>
+            <div class="card-content">
+              <%= simple_form_for [post, comment = Comment.new], remote: true do |f| %>
+                <%= f.input :content, label: false %>
+                <div class="button-comment-dropdown">
+                    <%= f.submit "Commenter", label: false, class: "button-small" %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 

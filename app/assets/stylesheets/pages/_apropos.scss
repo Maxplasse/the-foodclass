@@ -1,0 +1,148 @@
+#title-apropos {
+  margin-top: 130px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: $navy;
+}
+
+#mission-foodclass-title {
+  text-align: center;
+  color: $navy;
+  margin-bottom: 80px;
+}
+
+#flex-mission-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  img {
+    width: 44%;
+    border-radius: 10px;
+  }
+  p {
+    max-width: 44%;
+    text-align: center;
+    z-index: 1;
+    padding-top: 17px;
+  }
+}
+
+.box-border-ambition {
+  margin-top: 100px;
+  background-image: linear-gradient(to right, transparent 50%, $tangerine 50%);
+  background-size: 60px 100%;
+  height: 4px;
+}
+
+#ambition-foodclass-title {
+  text-align: center;
+  color: $navy;
+  margin-bottom: 40px;
+}
+
+#ambition-foodclass-text {
+  text-align: center;
+  position: relative;
+  top: 52px;
+}
+
+#valeurs-foodclass-title {
+  margin-top: 100px;
+  text-align: center;
+  color: $navy;
+  margin-bottom: 80px;
+}
+
+#highlight-mission {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, $abricot 60%);
+  display: inline-block;
+}
+
+#highlight-ambition {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, $tangerine 60%);
+  display: inline-block;
+}
+
+#highlight-valeurs {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, $salmon 60%);
+  display: inline-block;
+}
+
+#background-mission-shape {
+  position: absolute;
+}
+
+@media(min-width:1201px){
+  #background-mission-shape img {
+    width: 1087px;
+    height: 650px;
+    margin-left: -249px;
+    margin-top: 41px;
+  }
+}
+
+@media(max-width:1200px){
+  #background-mission-shape img {
+    width: 887px;
+    height: 650px;
+    margin-left: -211px;
+    margin-top: 53px;
+  }
+}
+
+@media(max-width:992px){
+  #background-mission-shape img {
+    width: 687px;
+    height: 529px;
+    margin-left: -172px;
+    margin-top: 41px;
+  }
+  #flex-mission-box p {
+    max-width: 44%;
+    text-align: center;
+    z-index: 1;
+    padding-top: 17px;
+    font-size: 13px;
+  }
+}
+
+@media(max-width:768px){
+  #flex-mission-box img {
+    width: 51%;
+    margin-right: -34px;
+    border-radius: 10px;
+  }
+  #background-mission-shape img {
+    width: 687px;
+    height: 469px;
+    margin-left: -225px;
+    margin-top: 41px;
+  }
+  #flex-mission-box p {
+    max-width: 62%;
+    margin-left: -63px;
+    font-size: 12px;
+  }
+  #mission-foodclass-title {
+    margin-bottom: 53px;
+  }
+  #valeurs-foodclass-title {
+    margin-top: 49px;
+  }
+  #ambition-foodclass-title {
+    margin-top: 49px;
+  }
+  #ambition-foodclass-text {
+    font-size: 12px;
+  }
+}
+
+@media(max-width:414px){
+  #background-mission-shape img {
+    width: 287px;
+    height: 250px;
+    margin-left: -249px;
+    margin-top: 41px;
+  }
+}
