@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :courses
   get 'mon_profil', to: 'profiles#show', as: :mon_profil
+  get 'a_propos', to: 'infos#show', as: :a_propos
   resources :posts, only: [:index, :create, :destroy] do
     resources :emojis, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
